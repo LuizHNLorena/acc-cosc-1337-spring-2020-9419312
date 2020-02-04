@@ -21,9 +21,9 @@ int main()
 	even = is_even(value);
 
 	//display even if number is even
-	if (even)
+	if (even == true)
 	{
-		cout << value << "is even.";
+		cout << value << " is even.";
 	}
 
 
