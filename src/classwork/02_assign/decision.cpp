@@ -2,12 +2,26 @@
 #include<iostream>
 #include "decision.h"
 
+
+/*
+NO OVERTIME
+gross = hours * hourly_rate
+OVERTIME
+gross = 40 * hourly_rate + (hours - 40) * 1.5 * hourly_rate
+*/
 int gross_pay(int hours, int hourly_rate)
 {
-	int hours = 40;
-	if (gross_pay > = 40)
-		cout << "regular hours";
+	
+	int gross;
 
-		break; 
-	return 0;
+	if (hours >= 40) 
+	{
+		gross = 40 * hourly_rate + (hours - 40) * 1.5 * hourly_rate;
+	}
+	else 
+	{
+		gross = hours * hourly_rate;
+	}
+		
+	return gross;
 }
