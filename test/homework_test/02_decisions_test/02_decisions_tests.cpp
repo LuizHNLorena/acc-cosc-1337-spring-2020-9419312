@@ -6,6 +6,7 @@
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
+//ask for help in learning lab 
 
 TEST_CASE("Verify the the function calculate_gpa ") {
 
