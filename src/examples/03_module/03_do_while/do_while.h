@@ -1,4 +1,6 @@
+
 //Write void function protype named prompt_user with no parameters
+void prompt_user();
 
 
 
