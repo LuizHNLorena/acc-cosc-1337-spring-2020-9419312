@@ -1,13 +1,14 @@
 //Write the function code that returns the product of hours and hourly_rate.
-#include<iostream>
-#include "decision.h"
+#include"decision.h"
 
-int gross_pay(int hours, int hourly_rate)
-{
-	int hours = 40;
-	if (gross_pay > = 40)
-		cout << "regular hours";
-
-		break; 
-	return 0;
+double gross_pay(double hours, double hourly_rate) {
+	double finalpay = 0.0;
+	if (hours > 40)
+	{
+		finalpay = hourly_rate * 40 + (hours - 40) * hourly_rate*1.5;
+	}
+	else {
+		finalpay = hours * hourly_rate;
+	}
+	return finalpay;
 }
