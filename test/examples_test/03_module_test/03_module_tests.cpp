@@ -2,6 +2,7 @@
 #include "catch.hpp"
 #include "while.h"
 #include "value_ref.h"
+#include "loops.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -21,6 +22,9 @@ TEST_CASE("Test value and ref function") {
 	REQUIRE(num2 == 50);
 
 }
-
+TEST_CASE("Veify your factorials")
+{
+	REQUIRE( )
+}
 
 
