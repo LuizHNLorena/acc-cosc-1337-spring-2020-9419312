@@ -8,6 +8,15 @@ TEST_CASE("Verify Test Configuration", "verification") {
 }
 //ask for help in learning lab 
 
+TEST_CASE("Test get grade points") 
+{
+	REQUIRE(get_grade_points("A") == 4);
+	REQUIRE(get_grade_points("B") == 3);
+	REQUIRE(get_grade_points("C") == 2);
+	REQUIRE(get_grade_points("D") == 1);
+	REQUIRE(get_grade_points("F") == 0);
+}
+
 TEST_CASE("Verify the the function calculate_gpa ") {
 
 	REQUIRE(calculate_gpa (12.0, 45.0) == 3.75);
