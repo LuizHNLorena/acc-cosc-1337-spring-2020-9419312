@@ -19,10 +19,10 @@ TEST_CASE("Test get grade points")
 
 TEST_CASE("Verify the the function calculate_gpa ") {
 
-	REQUIRE(calculate_gpa (12.0, 45.0) == 3.75);
-	REQUIRE(calculate_gpa(120, 390) == 3.25);
-	REQUIRE(calculate_gpa(90, 180)== 2.00);
-	REQUIRE(calculate_gpa (50, 0) == -1);
+	REQUIRE(calculate_gpa (45.0, 12.0) == 3.75);
+	REQUIRE(calculate_gpa(390, 120) == 3.25);
+	REQUIRE(calculate_gpa(180, 90)== 2.00);
+	REQUIRE(calculate_gpa (0, 50) == -1);
 
 
 }
