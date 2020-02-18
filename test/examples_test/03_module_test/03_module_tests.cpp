@@ -3,6 +3,8 @@
 #include "while.h"
 #include "value_ref.h"
 #include "loops.h"
+#include "for_ranged.h"
+#include <string>
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -27,4 +29,22 @@ TEST_CASE("Veify your factorials")
 	REQUIRE( )
 }
 
+TEST_CASE("Test for ranged loop by value")
 
+{
+	string name = "Joe";
+	loop_string_w_auto(name);
+	REQUIRE(name == "");
+
+
+}
+TEST_CASE("Test for ranged loop by regerence")
+
+{
+	string name = "Joe";
+	loop_string_w_auto_ref(name);
+
+	REQUIRE(name == "zzz");
+
+
+}
