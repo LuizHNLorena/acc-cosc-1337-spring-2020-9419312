@@ -1,13 +1,33 @@
 #include "bank_account.h"
 #include<iostream>
-using std::cout;
+#include<vector>
+using std::cout; using std::vector;
 
 
 int main()
 {
+	vector<BankAccount> accounts{ BankAccount(100),
+	BankAccount(200), BankAccount(300) };
+	for (auto act : accounts) {
+		cout << act.get_balance() << "\n";
+	}
+
 	BankAccount account(500);  ///b is 500
 	int balance = account.get_balance();   // it will get class balance 
 	cout << "Balance: " << balance;
+	try {
+
+		account.deposit(-10);
+
+	}
+	catch (InvalidAmount e)
+	{
+
+		cout << e.get_message();
+
+	}
+	
+
 
 
 	return 0;
