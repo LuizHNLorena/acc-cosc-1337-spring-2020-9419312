@@ -13,9 +13,9 @@ TEST_CASE("Verify Test Configuration", "verification") {
 
 TEST_CASE(" Verify if is_prime" ) {
 	REQUIRE(is_prime(2) == true);
-	REQUIRE(is_prime(4) == true);
+	REQUIRE(is_prime(4) == false);
 	REQUIRE(is_prime(43) == true);
-	REQUIRE(is_prime(44) == true);
+	REQUIRE(is_prime(44) == false);
 }
 
 

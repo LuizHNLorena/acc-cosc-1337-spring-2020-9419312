@@ -46,7 +46,7 @@ bool is_prime(int num)
 	return true;
 }
 
-}
+
 /*
 Write a a function named vector_of_primes with an integer parameter
 that given a number returns all the prime numbers up to the number
