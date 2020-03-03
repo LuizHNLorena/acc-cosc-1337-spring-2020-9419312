@@ -5,9 +5,7 @@
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
-TEST_CASE("Test bank Account") {
 
-}
 
 TEST_CASE("Test Bank Account deposit")
 
@@ -18,7 +16,7 @@ TEST_CASE("Test Bank Account deposit")
 	REQUIRE_THROWS_AS(account.deposit(-50),
 		InvalidAmount);
 		
-	account.deposit(50);
+	
 	REQUIRE(account.get_balance() == 200);
 }
 
@@ -39,4 +37,32 @@ TEST_CASE("Test Bank Account withdraw")
 	REQUIRE(account.get_balance() == 100); 
 
 
+}
+TEST_CASE("Test default constructor for eq 0")
+{
+	BankAccount account;
+	REQUIRE(account.get_balance() == 0);
+}
+TEST_CASE("Test default constructor open account")
+{
+	BankAccount account;
+	REQUIRE(account.get_balance() == 0);
+
+	account.open(25);
+	REQUIRE(account.get_balance() == 25);
+	
+}
+TEST_CASE("Test default constructor account alredy open")
+{
+	BankAccount account(50);
+	REQUIRE_THROWS_AS(account.open(25),
+		InvalidAmount);
+
+}
+TEST_CASE("Test default constructor open account with less than 25")
+{
+	BankAccount account;
+
+	REQUIRE_THROWS_AS(account.open(24),
+		InvalidAmount);
 }

@@ -6,9 +6,13 @@ using std::cout; using std::vector;
 
 int main()
 {
+
+
 	vector<BankAccount> accounts{ BankAccount(100),
 	BankAccount(200), BankAccount(300) };
-	for (auto act : accounts) {
+
+	for (auto act : accounts) 
+	{
 		cout << act.get_balance() << "\n";
 	}
 
@@ -26,9 +30,25 @@ int main()
 		cout << e.get_message();
 
 	}
+
 	
+}
 
+void BankAccount::open(int amount)
+{
+	if (balance > 0)
+	{
+		throw InvalidAmount("account ready  open, use deposit");
+	}
 
+	if (amount >= min_balance_to_open)
 
-	return 0;
+	{
+		balance += amount;
+	}
+	else
+	{
+		throw InvalidAmount("A deposit of at least 25...");
+	}
+	
 }

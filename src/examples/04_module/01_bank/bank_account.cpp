@@ -33,3 +33,7 @@ void BankAccount::withdraw(int amount)
 
 	}
 }
+void BankAccount::open(int amount)
+{
+	
+}
