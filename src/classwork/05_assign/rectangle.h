@@ -4,17 +4,24 @@ has one public function area that returns the area of the rectangle, and one pri
 that calculates area of the rectangle.  The class has 3 int private variables area, width, and height.
 */
 
+//a) In file rectangle.h, write Rectangle class function signature for overloading the << operator,
+
 #include<string>
 
 
 class rect
 {
 public: 
-	rect(int l, int w) : width{ l }, height{ w } { calculate_area(); }
+	rect() = default;
+	rect(int w, int h) : width{ w }, height{ h } { calculate_area(); }
 	int get_area() const { return area; }
+	friend std::istream& operator>>(std::istream& out, const rect& r);
 
 private: 
-	int width, height, area; 
-	void calculate_area();
+
+	int area;
+	int width; 
+	int height; 
+calculate_area();
 
 };

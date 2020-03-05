@@ -1,6 +1,7 @@
 //bank_account.cpp
 #include "bank_account.h"
 
+
 void BankAccount::deposit(int amount)
 {
 	if (amount > 0)
@@ -36,4 +37,33 @@ void BankAccount::withdraw(int amount)
 void BankAccount::open(int amount)
 {
 	
+}
+double BankAccount::rate = init_rate();
+
+void display_balance(const BankAccount & b)
+{
+	std::cout << "\nBalance is: " << b.balance<< "\n";
+}
+
+std::ostream & operator<<(std::ostream & out, const BankAccount & b)
+{
+	
+
+	out << "\nBalance is: " << b.balance << "\n";
+
+	return out;
+
+	// TODO: insert return statement here
+}
+
+std::istream & operator>>(std::istream & in, BankAccount & b)
+{
+	int amount;
+	std::cout << "Enter deposit: " ;
+	in >> amount;
+	b.deposit(amount);
+	return in; 
+
+
+	// TODO: insert return statement here
 }
