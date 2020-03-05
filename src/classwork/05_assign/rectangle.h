@@ -6,7 +6,7 @@ that calculates area of the rectangle.  The class has 3 int private variables ar
 
 //a) In file rectangle.h, write Rectangle class function signature for overloading the << operator,
 
-#include<string>
+#include<iostream>
 
 
 class rect
@@ -15,13 +15,13 @@ public:
 	rect() = default;
 	rect(int w, int h) : width{ w }, height{ h } { calculate_area(); }
 	int get_area() const { return area; }
-	friend std::istream& operator>>(std::istream& out, const rect& r);
+	friend std::ostream& operator<<(std::ostream& out, const rect& r);
 
 private: 
 
 	int area;
 	int width; 
 	int height; 
-calculate_area();
+    void calculate_area();
 
 };

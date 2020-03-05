@@ -15,9 +15,10 @@ void rect::calculate_area()
 
 }
 
-std::istream & operator>>(std::istream & out, const rect & r)
+std::ostream & operator<<(std::ostream & out, const rect & r)
 {
 
-	out << "\n Return erea is: " << r << "\n";// TODO: insert return statement here
+	out << "\n Return erea is: " << r.area << "\n";// TODO: insert return statement here
+	return out;
 }
 
