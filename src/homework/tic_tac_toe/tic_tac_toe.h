@@ -9,6 +9,8 @@ using std::string;
 class TicTacToe
 {
 public:
+	bool game_over();
+
 	void start_game(string first_player);
 	void mark_board(int position);
 	// Return the next_player value
@@ -21,7 +23,9 @@ private:
 	//Set next_player. If private variable player X, player is O else player is X
 	void set_next_player();
 	string player;
-
+	bool check_board_full();
+	std::vector<std::string> pegs{ 9, " "}
+	
 
 };
 class Error

@@ -10,7 +10,7 @@ class BankAccount
 {
 public: 
 	BankAccount() = default;
-	explicit BankAccount(int b) : balance{ b } {};           //has the same name as class this is a construckter it will execute one time //b is 500 
+	explicit BankAccount(int b) : balance{ b } {}           //has the same name as class this is a construckter it will execute one time //b is 500 
 	int get_balance()const { return balance; }
 	void deposit(int amount);
 	void withdraw(int amount);
@@ -20,8 +20,9 @@ public:
 	friend std::ostream& operator<<(std::ostream& out, const BankAccount& b);
 	friend std::istream& operator>>(std::istream& in, BankAccount& b);
 
-private:
+protected:
 	int balance{ 0 };
+private:
 
 	const int min_balance_to_open{ 25 };
 	static double rate;

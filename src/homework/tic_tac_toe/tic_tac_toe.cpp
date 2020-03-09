@@ -65,5 +65,8 @@ string TicTacToe::get_player() const
 {
 	return player;
 }
-
+bool Tictactoe::checking_board_full()
+{
+	return true; 
+}
 
