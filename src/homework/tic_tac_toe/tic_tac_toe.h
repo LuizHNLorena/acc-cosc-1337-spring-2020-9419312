@@ -1,7 +1,7 @@
 //h
 #include<iostream>
 #include<string>
-
+#include"vector"
 using std::string;
 
 // The classic TicTacToe game alternatively place Xs and Os on a 3x3 grid.The winner is the first player to place 3 consecutive marks in a horizontal, vertical or diagonal row.
@@ -14,7 +14,9 @@ public:
 	void start_game(string first_player);
 	void mark_board(int position);
 	// Return the next_player value
-	string get_player() const { return next_player; }
+	string get_player() const { return player; }
+	void display_board()const;
+
 
 
 
@@ -22,8 +24,9 @@ private:
 	
 	//Set next_player. If private variable player X, player is O else player is X
 	void set_next_player();
-	string player;
+	void clear_board();
 	bool check_board_full();
+	std::string player;
 	std::vector<std::string> pegs{ 9, " "}
 	
 

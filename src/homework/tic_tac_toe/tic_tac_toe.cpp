@@ -1,7 +1,14 @@
 //cpp
 #include "tic_tac_toe.h"
+#include<iostream>
+
 
 //1) first_player function argument value must be X or O; otherwise, throw an Error exception when value is not X or O.   Error Message: Player must be X or O. 2)In function set player(private variable) to first_player function argument.
+
+bool TicTacToe::game_over()
+{
+	return check_board_full;
+}
 
 void TicTacToe::start_game(string first_player)
 {
@@ -22,6 +29,7 @@ void TicTacToe::start_game(string first_player)
 	else {
 
 		throw Error("Player must be X or O");
+		clear_board() : player = first_player;
 
 	}
 
@@ -42,7 +50,15 @@ void TicTacToe::mark_board(int position)
 	}
 	else
 	{
+		pegs[position - 1] = player;
 		set_next_player();
+	}
+
+	void TicTacToe::display_board() const
+	{
+		for (std::size_t i = 0; i < 9; i += 3)
+			cout << pegs[i] << "" << pegs[i + 1] << "" << pegs[i + 2] << "\n";
+
 	}
 }
 void TicTacToe::set_next_player()
@@ -65,8 +81,22 @@ string TicTacToe::get_player() const
 {
 	return player;
 }
-bool Tictactoe::checking_board_full()
+bool TicTacToe::check_board_full()
 {
+	for (auto peg : pegs)
+	{
+		if (peg == "")
+		{
+			return false;
+		}
+	}
+
 	return true; 
 }
+void TicTacToe::clear_board() {
+
+	for(auto &peg :pegs)
+
+}
+
 
