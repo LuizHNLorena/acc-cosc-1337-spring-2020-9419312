@@ -1,7 +1,11 @@
 #include "checking_account.h"
 #include<iostream>
 #include<vector>
+#include "savings_account.h"
+
+
 using std::cout; using std::vector;
+using std::reference_wrapper;
 
 
 int main()
@@ -57,4 +61,22 @@ void BankAccount::open(int amount)
 		throw InvalidAmount("A deposit of at least 25...");
 	}
 	
+}
+int main()
+{
+	SavingAccount s(100);
+	CheckingAccount c(100);
+
+
+	
+	vector<reference_wrapper<BankAccount>> {s, c};
+	
+
+	for (auto account_ref: acts) 
+
+	{
+		cout << account_ref.get().get_balance() << "\n";
+	}
+
+	return 0;
 }
