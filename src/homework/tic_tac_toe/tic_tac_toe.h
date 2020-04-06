@@ -2,7 +2,7 @@
 #include<iostream>
 #include<string>
 #include"vector"
-using std::string;
+using std::vector;
 
 using std::string; 
 using std::cout;
@@ -20,7 +20,7 @@ public:
 	// Return the next_player value
 	string get_player() const { return player; }
 	void display_board()const;
-
+	string get_winner()const { return winner; }
 
 
 
@@ -30,10 +30,14 @@ private:
 	void set_next_player();
 	void clear_board();
 	bool check_board_full();
-	std::string player;
-	std::vector<std::string> pegs{ 9, " "}
-	
+	bool check_column_win();
+	bool check_row_win();
+	bool check_diagonal_win();
+	void set_winner();
 
+	std::string player;
+	std::vector<std::string> pegs{ 9, " " };
+	string winner;
 };
 class Error
 {

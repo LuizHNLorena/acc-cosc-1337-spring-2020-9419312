@@ -16,7 +16,7 @@ void TicTacToe::start_game(string first_player)
 		player = first_player;
 	}
 	clear_board();
-	}
+	
 
 }
 
@@ -38,15 +38,15 @@ void TicTacToe::mark_board(int position)
 		pegs[position - 1] = player;
 	}
 	set_next_player();
-	}
 }
+
 void TicTacToe::set_next_player()
 {
 	if (player == "X")
 	{
 		player = "O";
 	}
-	else  (player == "O")
+	else 
 	{
 		player = "X";
 	}
@@ -58,7 +58,7 @@ bool TicTacToe::check_board_full()
 {
 	for (auto peg : pegs)
 	{
-		if (peg == "")
+		if (peg == " ")
 		{
 			return false;
 		}
@@ -84,11 +84,13 @@ bool TicTacToe::game_over()
 		set_winner();
 		return true;
 	}
-	else
+	else if(check_board_full())
 	{
 		winner = "C";
-		return check_board_full();
+		return true;
 	}
+
+	return false;
 }
 
 void TicTacToe::clear_board()
