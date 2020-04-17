@@ -1,4 +1,4 @@
-//cpp
+//teststing push //cpp
 #include "tic_tac_toe.h"
 
 
@@ -16,43 +16,41 @@ void TicTacToe::start_game(string first_player)
 		player = first_player;
 	}
 	clear_board();
-	
+	}
 
 }
-
-//1) Value of int must be in the range 1 to 9; otherwise, throw an Error exception if value not in this range.Error Message : Position must be 1 to 9.
-//2) Private data player can’t be empty “”, throw an Error exception if player variable is “”.Error Message : Must start game first.
-//3) Call set_next_player private function
 void TicTacToe::mark_board(int position)
 {
 	if (position < 1 || position > 9)
 	{
-		throw Error("Position must be 1 to 9.");
+		throw Error("Position must be 1 to 9\n");
 	}
-	else if (player == "")
+	else if (next_player == "")
 	{
-		throw Error("Game must start first.");
+		throw Error("Must start game first\n");
 	}
 	else
 	{
-		pegs[position - 1] = player;
+		pegs[position - 1] = next_player;
+		if (!game_over())
+		{
+			set_next_player();
+		}
 	}
-	set_next_player();
+
 }
 
 void TicTacToe::set_next_player()
 {
-	if (player == "X")
+	if (next_player == "X")
 	{
-		player = "O";
+		next_player = "O";
 	}
-	else 
+	else
 	{
-		player = "X";
+		next_player = "X";
 	}
-	
 }
-
 
 bool TicTacToe::check_board_full()
 {
@@ -63,8 +61,7 @@ bool TicTacToe::check_board_full()
 			return false;
 		}
 	}
-
-	return true; 
+	return true;
 }
 
 bool TicTacToe::game_over()
@@ -84,13 +81,15 @@ bool TicTacToe::game_over()
 		set_winner();
 		return true;
 	}
-	else if(check_board_full())
+	else if (check_board_full())
 	{
 		winner = "C";
 		return true;
 	}
-
-	return false;
+	else
+	{
+		false;
+	}
 }
 
 void TicTacToe::clear_board()
@@ -103,7 +102,7 @@ void TicTacToe::clear_board()
 
 void TicTacToe::set_winner()
 {
-	if (player == "X")
+	if (next_player == "X")
 	{
 		winner = "O";
 	}
@@ -113,102 +112,34 @@ void TicTacToe::set_winner()
 	}
 }
 
-bool TicTacToe::check_row_win()
-{
 
-	if (pegs[0] == "X" && pegs[1] == "X" && pegs[2] == "X")
+std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
+{
+	if (game.pegs.size() == 9)
 	{
-		return true;
-	}
-	else if (pegs[3] == "X" && pegs[4] == "X" && pegs[5] == "X")
-	{
-		return true;
-	}
-	else if (pegs[6] == "X" && pegs[7] == "X" && pegs[8] == "X")
-	{
-		return true;
-	}
-	else if (pegs[0] == "O" && pegs[1] == "O" && pegs[2] == "O")
-	{
-		return true;
-	}
-	else if (pegs[3] == "O" && pegs[4] == "O" && pegs[5] == "O")
-	{
-		return true;
-	}
-	else if (pegs[6] == "O" && pegs[7] == "O" && pegs[8] == "O")
-	{
-		return true;
+		for (int i = 0; i < 9; i += 3)
+		{
+			out << game.pegs[i] << "|" << game.pegs[i + 1] << "|" << game.pegs[i + 2] << "\n";
+		}
 	}
 	else
 	{
-		return false;
+		for (int i = 0; i < 16; i += 4)
+		{
+			out << game.pegs[i] << "|" << game.pegs[i + 1] << "|" << game.pegs[i + 2] << "|" << game.pegs[i + 3] << "\n";
+		}
 	}
+
+	return out;
 }
 
-bool TicTacToe::check_column_win()
+std::istream& operator>>(std::istream& in, TicTacToe& game)
 {
-	if (pegs[0] == "X" && pegs[3] == "X" && pegs[6] == "X")
-	{
-		return true;
-	}
-	else if (pegs[1] == "X" && pegs[4] == "X" && pegs[7] == "X")
-	{
-		return true;
-	}
-	else if (pegs[2] == "X" && pegs[5] == "X" && pegs[8] == "X")
-	{
-		return true;
-	}
-	else if (pegs[0] == "O" && pegs[3] == "O" && pegs[6] == "O")
-	{
-		return true;
-	}
-	else if (pegs[1] == "O" && pegs[4] == "O" && pegs[7] == "O")
-	{
-		return true;
-	}
-	else if (pegs[2] == "O" && pegs[5] == "O" && pegs[8] == "O")
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	int loc;
+	cout << "Enter position: ";
+	std::cin >> loc;
+	game.mark_board(loc);
+
+	return in;
 }
-
-bool TicTacToe::check_diagonal_win()
-{
-	if (pegs[0] == "X" && pegs[4] == "X" && pegs[8] == "X")
-	{
-		return true;
-	}
-	else if (pegs[6] == "X" && pegs[4] == "X" && pegs[2] == "X")
-	{
-		return true;
-	}
-	else if (pegs[0] == "O" && pegs[4] == "O" && pegs[8] == "O")
-	{
-		return true;
-	}
-	else if (pegs[6] == "O" && pegs[4] == "O" && pegs[2] == "O")
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-void TicTacToe::display_board() const
-{
-	for (int i = 0; i < 9; i += 3)
-	{
-		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "\n";
-	}
-
-}
-
 
