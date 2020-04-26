@@ -1,25 +1,22 @@
-
-//teststing push //1) Prompt the user for first player
-//2) Start the game
-//3) In a user - controlled loop prompt the user for a position(int type) and call the mark_board tic tac toe class member function.Loop continues while user opts in.
-//4) Use a try catch block to check for an Error return when user enters incorrect data.
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
-#include "tic_tac_toe_manager.h"
-#include<vector>
+#include <vector>
 #include<functional>
+#include<memory>
 
 using std::cout;
 using std::cin;
 using std::string;
 
-int main()
+int main() 
 {
 	int option = 1;
 	int position;
-	std::vector < std::reference_wrapper<TicTacToe>> games;
-	TicTacToe
+	std::unique_ptr<TicTacToeManager> manager = std::make_unique<TicTacToeManager>(); 
+	std::unique_ptr<TicTacToe> board;
+
 	while (option == 1)
 	{
 		int type = 0;
@@ -27,72 +24,50 @@ int main()
 		cin >> type;
 		string first_player;
 		if (type = 3)
-
 		{
-			TicTacToe3 game;
-			while (!(first_player == "O" || first_player == "X"))
-			{
-				try {
-					cout << "Please choose one: 'X' or 'O'\n";
-					cin >> first_player;
-					game.start_game(first_player);
-				}
-				catch (Error e) {
-
-					cout << e.get_message();
-				}
-			}
-
-			while (!game.game_over())
-			{
-				try {
-					cin >> game; 
-				}
-				catch (Error e) {
-					cout << e.get_message();
-				}
-				cout << game;
-			}
+			board = std::make_unique<TicTacToe3>();
 		}
-		else
+		else 
 		{
-			TicTacToe4 game;
-			while (!(first_player == "O" || first_player == "X"))
-			{
-				try {
-					cout << "Please choose one: 'X' or 'O'\n";
-					cin >> first_player;
-					game.start_game(first_player);
-				}
-				catch (Error e) {
-
-					cout << e.get_message();
-				}
+			board = std::make_unique<TicTacToe4>();
+		}
+		while (!(first_player == "O" || first_player == "X"))
+		{
+			try {
+				cout << "Please choose one: 'X' or 'O'\n";
+				cin >> first_player;
+				board->start_game(first_player);
 			}
+			catch (Error e) {
 
-			while (!game.game_over())
-			{
-				try {
-					cin >> game; 
-				}
-				catch (Error e) {
-					cout << e.get_message();
-				}
-				cout << game;
+				cout << e.get_message();
 			}
 		}
 
-		manager.save_game(game);
-		cout << "\nThe winner is: " << game.get_winner() << "\n";
-		cout << "Enter '1' to continue with the game or '2' to finish.\n";
+		while (!board->game_over())
+		{
+
+			try {
+				cin >> *board; // don't remember what should be here
+			}
+			catch (Error e) {
+				cout << e.get_message();
+			}
+			cout << *board; // same here
+		}
+
+		cout << "\nThe winner is: " << board->get_winner() << "\n";
+		manager->save_game(board);
+		
+		cout << "Play again?";
 		cin >> option;
 	}
 
-	cout << manager << "\n\n";
+	cout << *manager<<"\n\n";
 	int x, o, t;
-	manager.get_winner_totals(x, o, t);
+	manager->get_winner_totals(x, o, t);
 	cout << "Winners: \n";
-	cout << "X" << x << "\n";
+	cout << "X" << x <<"\n";
 	cout << "O" << o << "\n";
 	cout << "T" << t << "\n";
 
