@@ -7,7 +7,7 @@
 
 void TicTacToe::start_game(string first_player)
 {
-	if (first_player != "X" && first_player != "O")
+	//if (first_player != "X" && first_player != "O")
 	{
 		throw Error("\nPlayer must be X or O\n");
 	}
