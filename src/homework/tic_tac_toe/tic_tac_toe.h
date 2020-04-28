@@ -1,71 +1,44 @@
-//h //teststing push 
-#include<iostream>
-#include<string>
-#include"vector"
-
+//h
 #ifndef TIC_TAC_TOE_H
 #define TIC_TAC_TOE_H
 
-
-
-using std::string; 
-using std::cout;
-
-
-// The classic TicTacToe game alternatively place Xs and Os on a 3x3 grid.The winner is the first player to place 3 consecutive marks in a horizontal, vertical or diagonal row.
+#include <string>
+#include <vector>
+#include<iostream>
 
 class TicTacToe
 {
 public:
-	TicTacToe(int size) : pegs{ size * size, " " } {};
+	TicTacToe(int size) : pegs(size*size, " ") {}
 	bool game_over();
+	void start_game(std::string first_player);
 	void mark_board(int position);
-	void start_game(string first_player);
-	
-	// Return the next_player value
-	string get_player() const { return player; }
-	void display_board()const;
-	friend std::ostream& operator << (std::ostream& out, const TicTacToe& game);
-	friend std::istream& operator >> (std::istream& in, TicTacToe& game);
-
-
-
-
-private:
-	
-	//Set next_player. If private variable player X, player is O else player is X
-	void set_next_player();
-	void clear_board();
-	bool check_board_full();
-	std::string player;
-	std::vector<std::string> pegs{ 9, " "}
+	std::string get_player() const { return player; }
+	std::string get_winner()const { return winner; }
+	friend std::ostream& operator<<(std::ostream& out, const TicTacToe& t);
+	friend std::istream& operator>>(std::istream& in, TicTacToe& t);
 protected:
-	std::vector<string> pegs;
-	string winner;
-	string next_player;
-	virtual bool check_row_win() { return false; }
-	virtual bool check_column_win() { return false; }
-	virtual bool check_diagonal_win() { return false; }
+	virtual bool check_column_win();
+	virtual bool check_row_win();
+	virtual bool check_diagonal_win();
+	std::vector<std::string> pegs;
+
 private:
-	bool check_board_full();
 	void set_next_player();
+	bool check_board_full();
 	void clear_board();
 	void set_winner();
-
+	std::string player;
+	std::string winner;
 };
+
 class Error
 {
 public:
-	//Constructor: initialized private variable message with function parameter msg
-	Error(std::string msg) : message{
-		msg } {};
-	//Return the message private variable
-	std::string get_message()const { return message; }
-
-
+	Error(std::string msg) : message{ msg } {};
+	std::string get_message()const { return message; };
 private:
-
 	std::string message;
-
 };
+
 #endif // !TIC_TAC_TOE_H
