@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/SanJuanita/source/repos/acc-cosc-1337-spring-2020-hl/acc-cosc-1337-spring-2020-9419312/out/build/x64-Debug/src/homework/01_expressions/cmake_install.cmake")
+  include("C:/Users/SanJuanita/source/repos/acc-cosc-1337-spring-2020-hl/acc-cosc-1337-spring-2020-9419312/out/build/x64-Debug/src/homework/tic_tac_toe/cmake_install.cmake")
 
 endif()
 

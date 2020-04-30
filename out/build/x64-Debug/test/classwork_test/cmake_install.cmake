@@ -32,9 +32,3 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("C:/Users/SanJuanita/source/repos/acc-cosc-1337-spring-2020-hl/acc-cosc-1337-spring-2020-9419312/out/build/x64-Debug/test/classwork_test/01_assign_test/cmake_install.cmake")
-
-endif()
-

@@ -1,0 +1,8 @@
+# ninja log v5
+40	7041	609986440	src/homework/tic_tac_toe/CMakeFiles/tic_tac_toe_exe.dir/tic_tac_toe_data.cpp.obj	c3ab604aaff147ac
+1	7095	609986440	src/homework/tic_tac_toe/CMakeFiles/tic_tac_toe_exe.dir/tic_tac_toe_4.cpp.obj	11fbe271c571829b
+166	7096	609986440	src/homework/tic_tac_toe/CMakeFiles/tic_tac_toe_exe.dir/tic_tac_toe_manager.cpp.obj	6d608fded2e2e740
+157	7435	609986440	src/homework/tic_tac_toe/CMakeFiles/tic_tac_toe_exe.dir/tic_tac_toe.cpp.obj	2f663840efe6c15b
+161	7436	609986440	src/homework/tic_tac_toe/CMakeFiles/tic_tac_toe_exe.dir/tic_tac_toe_3.cpp.obj	9d1bfa0d399b2787
+171	9177	609986442	src/homework/tic_tac_toe/CMakeFiles/tic_tac_toe_exe.dir/main.cpp.obj	13d1888dca41793e
+9177	12848	609986446	src/homework/tic_tac_toe/tic_tac_toe_exe.exe	bf840487cbcdf0fd

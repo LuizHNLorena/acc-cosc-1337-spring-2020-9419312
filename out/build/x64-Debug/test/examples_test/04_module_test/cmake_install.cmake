@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/SanJuanita/source/repos/acc-cosc-1337-spring-2020-hl/acc-cosc-1337-spring-2020-9419312/src/examples
+# Install script for directory: C:/Users/SanJuanita/source/repos/acc-cosc-1337-spring-2020-hl/acc-cosc-1337-spring-2020-9419312/test/examples_test/04_module_test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
