@@ -124,27 +124,6 @@
 			"path" : "src/CMakeLists.txt"
 		},
 		{
-			"path" : "src/classwork/CMakeLists.txt"
-		},
-		{
-			"path" : "src/classwork/02_assign/CMakeLists.txt"
-		},
-		{
-			"path" : "src/classwork/03_assign/CMakeLists.txt"
-		},
-		{
-			"path" : "src/classwork/05_assign/CMakeLists.txt"
-		},
-		{
-			"path" : "src/examples/CMakeLists.txt"
-		},
-		{
-			"path" : "src/homework/CMakeLists.txt"
-		},
-		{
-			"path" : "src/homework/tic_tac_toe/CMakeLists.txt"
-		},
-		{
 			"path" : "test/CMakeLists.txt"
 		},
 		{

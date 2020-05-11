@@ -1,18 +1,11 @@
 {
-	"archive" : 
-	{
-		"commandFragments" : 
-		[
-			{
-				"fragment" : "/machine:x64",
-				"role" : "flags"
-			}
-		]
-	},
 	"artifacts" : 
 	[
 		{
-			"path" : "src/classwork/05_assign/cw_05_library.lib"
+			"path" : "test/homework_test/tic_tac_toe_test/tic_tac_toe_tests.exe"
+		},
+		{
+			"path" : "test/homework_test/tic_tac_toe_test/tic_tac_toe_tests.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -20,12 +13,12 @@
 	{
 		"commands" : 
 		[
-			"add_library",
+			"add_executable",
 			"include_directories"
 		],
 		"files" : 
 		[
-			"src/classwork/05_assign/CMakeLists.txt",
+			"test/homework_test/tic_tac_toe_test/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -463,13 +456,32 @@
 			]
 		}
 	],
-	"id" : "cw_05_library::@42d74d72be3515c0d5fd",
-	"name" : "cw_05_library",
-	"nameOnDisk" : "cw_05_library.lib",
+	"id" : "tic_tac_toe_tests::@d7f7d0a85a58b61fbc93",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "tic_tac_toe_library.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "tic_tac_toe_tests",
+	"nameOnDisk" : "tic_tac_toe_tests.exe",
 	"paths" : 
 	{
-		"build" : "src/classwork/05_assign",
-		"source" : "src/classwork/05_assign"
+		"build" : "test/homework_test/tic_tac_toe_test",
+		"source" : "test/homework_test/tic_tac_toe_test"
 	},
 	"sourceGroups" : 
 	[
@@ -479,13 +491,6 @@
 			[
 				0
 			]
-		},
-		{
-			"name" : "Header Files",
-			"sourceIndexes" : 
-			[
-				1
-			]
 		}
 	],
 	"sources" : 
@@ -493,14 +498,9 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/classwork/05_assign/rectangle.cpp",
+			"path" : "test/homework_test/tic_tac_toe_test/tic_tac_toe_test.cpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "src/classwork/05_assign/rectangle.h",
-			"sourceGroupIndex" : 1
 		}
 	],
-	"type" : "STATIC_LIBRARY"
+	"type" : "EXECUTABLE"
 }
