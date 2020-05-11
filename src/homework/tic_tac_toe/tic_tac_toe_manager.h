@@ -1,6 +1,7 @@
 //h
 
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_data.h"
 #include <memory>
 #include<string>
 
